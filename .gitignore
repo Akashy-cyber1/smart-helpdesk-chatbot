@@ -1,7 +1,10 @@
 # Python
 chatbot/venv/
 chatbot/__pycache__/
-chatbot/*.pyc
+chatbot/app/__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
 chatbot/.env
 
 # Node
