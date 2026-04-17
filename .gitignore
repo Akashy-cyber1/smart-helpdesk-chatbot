@@ -1,0 +1,12 @@
+# Python
+chatbot/venv/
+chatbot/__pycache__/
+chatbot/*.pyc
+chatbot/.env
+
+# Node
+chatbot-ui/node_modules/
+
+# OS
+.DS_Store
+Thumbs.db

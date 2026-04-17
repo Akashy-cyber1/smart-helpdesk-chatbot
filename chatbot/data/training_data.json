@@ -1,0 +1,64 @@
+{
+  "intents": [
+    {
+      "tag": "greet",
+      "patterns": [
+        "hi", "hello", "hey", "hii", "good morning", "good evening"
+      ],
+      "responses": [
+        "Hello!", "Hi there!", "Hey!"
+      ]
+    },
+    {
+      "tag": "service",
+      "patterns": [
+        "laptop repair",
+        "fix my laptop",
+        "my laptop is broken",
+        "need laptop service",
+        "repair laptop",
+        "screen issue",
+        "keyboard not working"
+      ],
+      "responses": [
+        "We provide laptop repair services",
+        "Our technician can help you"
+      ]
+    },
+    {
+      "tag": "about",
+      "patterns": [
+        "who are you",
+        "what is this",
+        "tell me about you",
+        "what do you do"
+      ],
+      "responses": [
+        "I am an AI chatbot built using FastAPI",
+        "I help users with laptop services"
+      ]
+    },
+    {
+      "tag": "unknown",
+      "patterns": [
+        "asdf", "qwerty", "random text"
+      ],
+      "responses": [
+        "Sorry, I didn't understand that"
+      ]
+    },
+    {
+  "tag": "it_support",
+  "patterns": [
+    "my laptop is slow",
+    "wifi not working",
+    "blue screen error",
+    "system hang"
+  ],
+  "responses": [
+    "Try restarting your system or closing background apps.",
+    "Please check your internet connection."
+  ]
+}
+  ]
+}
