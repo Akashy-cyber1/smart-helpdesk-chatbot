@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 
-const API_URL = "http://localhost:8000/chat";
+const API_URL = process.env.REACT_APP_API_URL;
 
 export default function ChatbotUI() {
   const [messages, setMessages] = useState([]);
