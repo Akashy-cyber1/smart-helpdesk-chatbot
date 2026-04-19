@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 
-const API_URL = process.env.REACT_APP_API_URL;
+// const API_URL = process.env.REACT_APP_API_URL;
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8000";
 
 export default function ChatbotUI() {
   const [messages, setMessages] = useState([]);
@@ -16,7 +17,7 @@ export default function ChatbotUI() {
     setLoading(true);
 
     try {
-      const res = await fetch(API_URL, {
+      const res = await fetch(`${API_URL}/chat`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
