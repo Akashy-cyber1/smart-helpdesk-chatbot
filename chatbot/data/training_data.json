@@ -3,62 +3,432 @@
     {
       "tag": "greet",
       "patterns": [
-        "hi", "hello", "hey", "hii", "good morning", "good evening"
+        "hi", "hello", "hey", "hii", "hiii", "good morning", "good evening",
+        "good afternoon", "howdy", "what's up", "sup", "greetings", "namaste"
       ],
       "responses": [
-        "Hello!", "Hi there!", "Hey!"
+        "Hello! I'm your IT Support Assistant. How can I help you today?",
+        "Hi there! What IT issue can I help you with?",
+        "Hey! I'm here to help with your IT problems. What's going on?"
       ]
     },
     {
-      "tag": "service",
+      "tag": "goodbye",
       "patterns": [
-        "laptop repair",
-        "fix my laptop",
-        "my laptop is broken",
-        "need laptop service",
-        "repair laptop",
-        "screen issue",
-        "keyboard not working"
+        "bye", "goodbye", "see you", "later", "take care", "thanks bye",
+        "exit", "quit", "close", "that's all", "nothing else"
       ],
       "responses": [
-        "We provide laptop repair services",
-        "Our technician can help you"
+        "Goodbye! Feel free to come back if you have more IT issues.",
+        "Take care! Hope your issue is resolved.",
+        "Bye! Don't hesitate to reach out if you need help again."
+      ]
+    },
+    {
+      "tag": "thanks",
+      "patterns": [
+        "thanks", "thank you", "thank you so much", "thanks a lot",
+        "appreciated", "helpful", "great help", "you helped me"
+      ],
+      "responses": [
+        "You're welcome! Happy to help.",
+        "Glad I could assist! Let me know if you need anything else.",
+        "Anytime! That's what I'm here for."
       ]
     },
     {
       "tag": "about",
       "patterns": [
-        "who are you",
-        "what is this",
-        "tell me about you",
-        "what do you do"
+        "who are you", "what are you", "tell me about you", "what do you do",
+        "what is this", "what can you do", "your capabilities", "help me"
       ],
       "responses": [
-        "I am an AI chatbot built using FastAPI",
-        "I help users with laptop services"
+        "I'm an AI-powered IT Support Assistant. I can help you with laptop issues, network problems, software errors, hardware failures, and much more!",
+        "I'm your smart IT helpdesk bot. Ask me anything about computer issues, networking, software, or hardware problems."
+      ]
+    },
+
+    {
+      "tag": "laptop_slow",
+      "patterns": [
+        "my laptop is slow", "computer is slow", "system is lagging",
+        "laptop running slow", "pc is sluggish", "system very slow",
+        "laptop hangs frequently", "everything is slow", "laptop takes time to open",
+        "apps are slow", "browser is slow", "system performance is poor"
+      ],
+      "responses": [
+        "Here are steps to speed up your laptop:\n1. Restart your system\n2. Open Task Manager (Ctrl+Shift+Esc) and close heavy processes\n3. Disable startup programs: Task Manager → Startup tab\n4. Run Disk Cleanup: search 'Disk Cleanup' in start menu\n5. Check for malware using Windows Defender\n6. Make sure you have at least 10% free disk space\n7. Consider upgrading RAM if it's below 8GB",
+        "Try these performance fixes:\n1. Close unused browser tabs\n2. Uninstall unused programs\n3. Run 'sfc /scannow' in CMD as administrator\n4. Update your drivers\n5. Check if antivirus is running a background scan"
+      ]
+    },
+    {
+      "tag": "laptop_hang",
+      "patterns": [
+        "laptop is hanging", "system hangs", "computer freezes", "laptop frozen",
+        "screen is frozen", "mouse not moving", "system stopped responding",
+        "application not responding", "laptop stuck", "computer crashed"
+      ],
+      "responses": [
+        "If your laptop is hanging:\n1. Wait 2-3 minutes — it might recover\n2. Press Ctrl+Alt+Delete → Open Task Manager → End unresponsive tasks\n3. If completely frozen, hold Power button for 5 seconds to force shutdown\n4. After restart, check Event Viewer for error logs\n5. Run memory diagnostic: search 'Windows Memory Diagnostic'\n6. Check for overheating — clean laptop vents",
+        "For frequent freezing:\n1. Update Windows and drivers\n2. Check RAM health using MemTest86\n3. Run 'chkdsk /f' in CMD to check disk errors\n4. Increase virtual memory if RAM is low"
+      ]
+    },
+    {
+      "tag": "blue_screen",
+      "patterns": [
+        "blue screen", "BSOD", "blue screen of death", "system crash",
+        "laptop shows blue screen", "windows crashed", "stop error",
+        "0x0000007e", "critical process died", "system failure blue screen",
+        "blue screen with error code"
+      ],
+      "responses": [
+        "Blue Screen (BSOD) fix steps:\n1. Note the error code shown on blue screen\n2. Restart and see if it happens again\n3. Boot in Safe Mode: restart → F8 → Safe Mode\n4. Update all drivers, especially graphics and chipset\n5. Run 'sfc /scannow' in CMD as admin\n6. Check RAM: remove and reseat RAM sticks\n7. Run Windows Memory Diagnostic tool\n8. If recent hardware added, remove it and test",
+        "Common BSOD causes:\n• Corrupted drivers → Update/rollback drivers\n• Bad RAM → Run MemTest86\n• Disk errors → Run chkdsk\n• Malware → Full antivirus scan\n• Overheating → Clean cooling system"
+      ]
+    },
+    {
+      "tag": "laptop_not_starting",
+      "patterns": [
+        "laptop not turning on", "laptop won't start", "computer not booting",
+        "black screen on startup", "laptop dead", "power button not working",
+        "laptop shows nothing", "system not starting", "pc not powering on"
+      ],
+      "responses": [
+        "Laptop not starting — try these steps:\n1. Check if charger is properly connected and charging light is on\n2. Remove battery, hold power button 30 seconds, reinsert battery\n3. Try a different power adapter if available\n4. If black screen: connect external monitor to check display issue\n5. Remove all USB devices and try starting\n6. Check if fan spins — if yes, screen may be faulty\n7. If no response at all, RAM or motherboard may be faulty",
+        "Boot failure solutions:\n1. Try power drain: unplug charger, remove battery, hold power 60 sec\n2. Check if laptop beeps — count beeps for error code\n3. Try booting from USB/CD\n4. Last resort: take to service center"
+      ]
+    },
+    {
+      "tag": "laptop_overheating",
+      "patterns": [
+        "laptop is overheating", "laptop too hot", "fan making noise",
+        "laptop gets hot", "system overheating", "laptop shuts down due to heat",
+        "laptop hot to touch", "cooling fan loud", "thermal shutdown"
+      ],
+      "responses": [
+        "Laptop overheating solutions:\n1. Place laptop on hard flat surface — not on bed/pillow\n2. Clean vents with compressed air\n3. Use laptop cooling pad\n4. Check Task Manager for CPU-hogging processes\n5. Update BIOS and drivers\n6. Apply new thermal paste on CPU (advanced — take to technician)\n7. Avoid using in direct sunlight or hot rooms",
+        "To prevent overheating:\n1. Keep vents clear always\n2. Use power saver mode when doing light tasks\n3. Regularly clean laptop internals every 6 months\n4. Monitor temps using HWMonitor software"
+      ]
+    },
+    {
+      "tag": "battery_issue",
+      "patterns": [
+        "battery not charging", "battery draining fast", "laptop battery problem",
+        "battery showing 0%", "plugged in not charging", "battery health low",
+        "laptop dies quickly", "battery not detected", "charging issue"
+      ],
+      "responses": [
+        "Battery/Charging issues fix:\n1. Check charging cable and adapter for damage\n2. Clean charging port with dry cloth\n3. Remove battery, press power 30 sec, reconnect\n4. Update battery drivers: Device Manager → Batteries\n5. Run Power Troubleshooter: Settings → Troubleshoot\n6. Check battery health: open CMD → 'powercfg /batteryreport'\n7. If battery health below 50%, consider replacement",
+        "For 'Plugged in not charging':\n1. Uninstall 'Microsoft ACPI Battery' from Device Manager\n2. Restart — it will reinstall automatically\n3. Try different power outlet\n4. Disable battery saver mode"
+      ]
+    },
+    {
+      "tag": "keyboard_issue",
+      "patterns": [
+        "keyboard not working", "keys not responding", "some keys not working",
+        "keyboard typing wrong letters", "keyboard stuck", "spacebar not working",
+        "backspace not working", "keyboard input wrong", "keys are sticky"
+      ],
+      "responses": [
+        "Keyboard troubleshooting:\n1. Restart the laptop first\n2. Check if keyboard works in BIOS (press F2 on startup)\n3. Update keyboard drivers: Device Manager → Keyboards\n4. Run keyboard troubleshooter in Settings\n5. Check for stuck keys — clean with compressed air\n6. Disable Filter Keys: Settings → Ease of Access → Keyboard\n7. Try external USB keyboard to isolate issue",
+        "If specific keys not working:\n1. Check if Num Lock / Fn lock is enabled\n2. Clean under keys with isopropyl alcohol\n3. If liquid spilled, immediately power off and dry completely\n4. May need keyboard replacement if physically damaged"
+      ]
+    },
+    {
+      "tag": "screen_issue",
+      "patterns": [
+        "laptop screen flickering", "display problem", "screen black",
+        "monitor not working", "screen has lines", "display flickering",
+        "brightness problem", "screen too dark", "display not working",
+        "half screen black", "screen cracked", "no display"
+      ],
+      "responses": [
+        "Screen/Display issues:\n1. Adjust brightness using Fn + brightness keys\n2. Update display drivers: Device Manager → Display Adapters\n3. Right-click desktop → Display Settings → adjust resolution\n4. Connect external monitor — if works, internal display is faulty\n5. Check display cable connection (for desktops)\n6. For flickering: change refresh rate in Display Settings → Advanced\n7. Roll back display driver if issue started after update",
+        "Screen fix steps:\n1. Restart in Safe Mode to check if driver issue\n2. Run 'dxdiag' to check display information\n3. If physical damage (cracks/lines), screen needs replacement\n4. For black screen: try Fn+F4 or Windows+P to switch display mode"
+      ]
+    },
+
+    {
+      "tag": "wifi_not_connecting",
+      "patterns": [
+        "wifi not working", "cannot connect to wifi", "internet not working",
+        "wifi disconnecting", "no internet access", "wifi connected but no internet",
+        "cannot find wifi", "wifi keeps dropping", "internet connection lost",
+        "wifi signal weak", "cannot connect to network"
+      ],
+      "responses": [
+        "WiFi troubleshooting steps:\n1. Turn WiFi off and on again\n2. Forget network and reconnect with password\n3. Restart router and modem\n4. Run network troubleshooter: Settings → Network → Troubleshoot\n5. Update network drivers: Device Manager → Network Adapters\n6. Reset TCP/IP: open CMD as admin → 'netsh int ip reset'\n7. Flush DNS: CMD → 'ipconfig /flushdns'\n8. Check if other devices can connect to same WiFi",
+        "For 'Connected but no internet':\n1. CMD as admin: 'netsh winsock reset'\n2. Change DNS to 8.8.8.8 (Google DNS)\n3. Disable VPN if running\n4. Check router settings for MAC filtering\n5. Try connecting to mobile hotspot to test"
+      ]
+    },
+    {
+      "tag": "wifi_slow",
+      "patterns": [
+        "wifi is slow", "internet speed slow", "slow internet", "buffering problem",
+        "video buffering", "download slow", "upload slow", "ping is high",
+        "latency issues", "internet lag"
+      ],
+      "responses": [
+        "Slow internet fixes:\n1. Run speed test at speedtest.net\n2. Move closer to router\n3. Restart router (unplug 30 sec)\n4. Disconnect other devices using bandwidth\n5. Change WiFi channel in router settings (use 5GHz band)\n6. Update network adapter drivers\n7. Disable background downloads/updates\n8. Check if ISP has outage in your area",
+        "For high ping/latency:\n1. Use wired ethernet instead of WiFi\n2. Close bandwidth-heavy apps (streaming, torrent)\n3. Enable QoS in router settings\n4. Contact ISP if speed is consistently below promised speed"
+      ]
+    },
+    {
+      "tag": "ethernet_issue",
+      "patterns": [
+        "ethernet not working", "lan cable not working", "wired connection issue",
+        "network cable not connected", "ethernet port not working",
+        "local network issue", "RJ45 not working"
+      ],
+      "responses": [
+        "Ethernet troubleshooting:\n1. Check if ethernet cable is firmly plugged in both ends\n2. Look for green/orange light on ethernet port\n3. Try a different ethernet cable\n4. Try different port on router/switch\n5. Update LAN drivers: Device Manager → Network Adapters\n6. Disable and re-enable adapter: Network Settings → Change Adapter Options\n7. Run: 'netsh int ip reset' and 'netsh winsock reset' in CMD"
+      ]
+    },
+    {
+      "tag": "vpn_issue",
+      "patterns": [
+        "vpn not connecting", "vpn issue", "vpn slow", "cannot connect to vpn",
+        "vpn disconnecting", "vpn error", "remote access not working"
+      ],
+      "responses": [
+        "VPN troubleshooting:\n1. Check internet connection first\n2. Verify VPN credentials are correct\n3. Try different VPN server/location\n4. Temporarily disable firewall/antivirus\n5. Reinstall VPN client\n6. Check if VPN protocol is blocked by ISP\n7. Try different VPN protocol (OpenVPN, IKEv2, WireGuard)\n8. Contact IT admin for corporate VPN issues"
+      ]
+    },
+    {
+      "tag": "ip_address",
+      "patterns": [
+        "how to find ip address", "what is my ip", "check ip address",
+        "ip conflict", "duplicate ip", "change ip address", "static ip setup",
+        "ipconfig command", "ip address not assigned"
+      ],
+      "responses": [
+        "To find your IP address:\n1. Open CMD → type 'ipconfig' → press Enter\n2. Look for 'IPv4 Address'\n3. Or go to Settings → Network → Properties\n\nFor IP conflict:\n1. CMD as admin: 'ipconfig /release' then 'ipconfig /renew'\n2. Set static IP: Network Settings → Adapter Properties → TCP/IPv4\n3. Check router DHCP settings for duplicate assignments"
+      ]
+    },
+    {
+      "tag": "dns_issue",
+      "patterns": [
+        "dns not resolving", "dns error", "website not opening", "dns_probe_finished",
+        "cannot reach website", "domain not found", "dns server not responding",
+        "change dns server"
+      ],
+      "responses": [
+        "DNS issue fixes:\n1. CMD as admin: 'ipconfig /flushdns'\n2. Change DNS to Google: 8.8.8.8 and 8.8.4.4\n3. Or use Cloudflare DNS: 1.1.1.1\n4. Steps to change DNS:\n   → Network Settings → Adapter → Properties → IPv4 → DNS\n5. Restart browser after changing DNS\n6. Disable IPv6 temporarily and test"
+      ]
+    },
+
+    {
+      "tag": "software_not_installing",
+      "patterns": [
+        "software not installing", "application not installing", "setup failed",
+        "installation error", "cannot install program", "installer not working",
+        "setup.exe not running", "blocked installation"
+      ],
+      "responses": [
+        "Software installation issues:\n1. Right-click installer → Run as Administrator\n2. Disable antivirus temporarily during install\n3. Check if 32-bit or 64-bit version matches your Windows\n4. Download fresh copy — previous download may be corrupted\n5. Check available disk space (need at least 2x software size free)\n6. Install Visual C++ Redistributables if required\n7. Check Windows Event Viewer for specific error",
+        "If Windows blocks installation:\n1. Settings → Apps → Allow apps from anywhere\n2. Or right-click installer → Properties → Unblock\n3. Check if software is compatible with your Windows version"
+      ]
+    },
+    {
+      "tag": "software_crashing",
+      "patterns": [
+        "application crashing", "software keeps crashing", "app not opening",
+        "program stops working", "app closes automatically", "software freezes",
+        "application error", "exe not working", "program crashed"
+      ],
+      "responses": [
+        "App crashing solutions:\n1. Restart the application\n2. Run as Administrator\n3. Update the application to latest version\n4. Reinstall the application completely\n5. Check Windows Event Viewer for crash details\n6. Update Visual C++ and .NET Framework\n7. Check if antivirus is blocking the app\n8. Run System File Checker: 'sfc /scannow' in CMD as admin",
+        "Additional fixes:\n1. Clear app cache/temp files\n2. Check compatibility mode: right-click → Properties → Compatibility\n3. Temporarily disable DEP (Data Execution Prevention)\n4. Check if GPU driver update is needed"
+      ]
+    },
+    {
+      "tag": "windows_update",
+      "patterns": [
+        "windows update not working", "update failed", "windows update stuck",
+        "cannot update windows", "update error", "update downloading slow",
+        "windows update error code", "pending updates"
+      ],
+      "responses": [
+        "Windows Update fix:\n1. Run Windows Update Troubleshooter: Settings → Troubleshoot\n2. Restart Windows Update service:\n   → Services.msc → Windows Update → Restart\n3. Clear update cache:\n   → Stop Windows Update service\n   → Delete C:\\Windows\\SoftwareDistribution folder\n   → Start service again\n4. Run: 'sfc /scannow' and 'DISM /Online /Cleanup-Image /RestoreHealth'\n5. Check Windows Update catalog for manual download"
+      ]
+    },
+    {
+      "tag": "antivirus",
+      "patterns": [
+        "virus detected", "malware on laptop", "ransomware", "computer has virus",
+        "antivirus not working", "remove virus", "system infected",
+        "suspicious activity", "pop up ads", "browser hijacked"
+      ],
+      "responses": [
+        "Virus/Malware removal:\n1. Immediately disconnect from internet\n2. Boot in Safe Mode: restart → F8 → Safe Mode with Networking\n3. Run Windows Defender full scan\n4. Download and run Malwarebytes (free)\n5. Run AdwCleaner for adware\n6. Check browser extensions — remove unknown ones\n7. Change all passwords after cleaning\n8. Enable real-time protection in Windows Defender",
+        "Prevention tips:\n1. Keep Windows and software updated\n2. Don't download from untrusted sites\n3. Don't click suspicious email links\n4. Use strong passwords\n5. Regular backup of important data"
+      ]
+    },
+    {
+      "tag": "driver_issue",
+      "patterns": [
+        "driver not found", "driver update", "device driver issue",
+        "yellow exclamation in device manager", "driver corrupted",
+        "driver installation failed", "unknown device", "outdated driver"
+      ],
+      "responses": [
+        "Driver troubleshooting:\n1. Open Device Manager: right-click Start → Device Manager\n2. Look for yellow ! marks\n3. Right-click device → Update Driver → Search automatically\n4. Or download from manufacturer website:\n   → Dell: dell.com/support\n   → HP: support.hp.com\n   → Lenovo: support.lenovo.com\n5. Use Driver Booster or Snappy Driver for automatic updates\n6. If driver causes issues: Device Manager → Roll Back Driver"
+      ]
+    },
+    {
+      "tag": "os_reinstall",
+      "patterns": [
+        "reinstall windows", "format laptop", "factory reset", "windows corrupt",
+        "fresh windows install", "reset pc", "how to format",
+        "windows not booting", "repair windows installation"
+      ],
+      "responses": [
+        "Windows Reset/Reinstall options:\n\nOption 1 - Reset (keep files):\nSettings → System → Recovery → Reset this PC → Keep my files\n\nOption 2 - Fresh Install:\n1. Download Windows ISO from microsoft.com\n2. Create bootable USB using Rufus\n3. Boot from USB (F12 on startup)\n4. Follow installation steps\n\nBefore reinstalling:\n• Backup all important data!\n• Note your product key\n• Download drivers beforehand"
+      ]
+    },
+
+    {
+      "tag": "printer_issue",
+      "patterns": [
+        "printer not working", "cannot print", "printer offline", "print job stuck",
+        "printer not detected", "printing problem", "paper jam",
+        "printer driver issue", "wireless printer not connecting"
+      ],
+      "responses": [
+        "Printer troubleshooting:\n1. Check printer is powered on and connected\n2. Restart printer and computer\n3. Clear print queue: Control Panel → Devices → Printer → See what's printing → Cancel all\n4. Set as default printer: right-click printer → Set as default\n5. Run printer troubleshooter: Settings → Troubleshoot → Printer\n6. Reinstall printer driver from manufacturer website\n7. For network printer: check if same WiFi network",
+        "For 'Printer Offline':\n1. Control Panel → Devices and Printers\n2. Right-click printer → See what's printing\n3. Printer menu → Uncheck 'Use Printer Offline'\n4. Restart Print Spooler service"
+      ]
+    },
+    {
+      "tag": "usb_issue",
+      "patterns": [
+        "usb not detected", "pendrive not working", "usb device not recognized",
+        "usb port not working", "flash drive not showing", "external drive not detected",
+        "usb keeps disconnecting"
+      ],
+      "responses": [
+        "USB troubleshooting:\n1. Try different USB port\n2. Try USB device on different computer\n3. Safely remove and reconnect\n4. Check Disk Management: right-click Start → Disk Management\n5. Update USB drivers: Device Manager → Universal Serial Bus Controllers\n6. Disable USB selective suspend:\n   Power Options → Change plan settings → Advanced → USB settings\n7. Run: 'sfc /scannow' to fix system files"
+      ]
+    },
+    {
+      "tag": "external_monitor",
+      "patterns": [
+        "external monitor not working", "second monitor not detected",
+        "hdmi not working", "display port issue", "projector not connecting",
+        "extend display not working", "dual monitor setup"
+      ],
+      "responses": [
+        "External monitor setup:\n1. Check cable connection (HDMI/VGA/DisplayPort)\n2. Press Windows+P → Select display mode (Extend/Duplicate/Second screen only)\n3. Right-click desktop → Display Settings → Detect\n4. Try different cable or port\n5. Update display drivers\n6. Restart with monitor already connected\n7. Check if monitor is set to correct input source"
+      ]
+    },
+    {
+      "tag": "audio_issue",
+      "patterns": [
+        "no sound", "audio not working", "speaker not working", "microphone not working",
+        "headphone not detected", "sound distorted", "audio driver issue",
+        "volume not working", "bluetooth speaker not connecting"
+      ],
+      "responses": [
+        "Audio troubleshooting:\n1. Check volume is not muted (system tray)\n2. Right-click sound icon → Open Sound Settings → Check output device\n3. Run audio troubleshooter: Settings → Troubleshoot → Audio\n4. Update audio drivers: Device Manager → Sound, video and game controllers\n5. Set correct playback device: right-click sound icon → Sounds → Playback\n6. Reinstall audio driver completely\n7. Check if audio works with headphones vs speakers"
+      ]
+    },
+
+    {
+      "tag": "password_reset",
+      "patterns": [
+        "forgot password", "reset password", "locked out", "cannot login",
+        "windows password forgot", "account locked", "login problem",
+        "change password", "admin password reset"
+      ],
+      "responses": [
+        "Password reset options:\n\nFor Microsoft Account:\n1. Go to account.microsoft.com/password/reset\n2. Follow verification steps\n\nFor Local Account:\n1. On login screen → click 'I forgot my PIN'\n2. Answer security questions\n3. Or use another admin account to reset\n\nFor Admin reset via USB:\n1. Boot from Windows USB\n2. Repair → Command Prompt\n3. Use net user command to reset password"
+      ]
+    },
+    {
+      "tag": "remote_desktop",
+      "patterns": [
+        "remote desktop not working", "rdp issue", "cannot remote access",
+        "teamviewer not connecting", "anydesk problem", "remote connection failed",
+        "enable remote desktop"
+      ],
+      "responses": [
+        "Remote Desktop setup:\n1. Enable RDP: Settings → System → Remote Desktop → Enable\n2. Allow through Firewall: Windows Firewall → Allow app → Remote Desktop\n3. Note your IP: ipconfig in CMD\n4. Connect: Run → mstsc → enter IP\n\nFor TeamViewer/AnyDesk:\n1. Both systems must have same version\n2. Check if blocked by firewall\n3. Ensure internet connection is stable\n4. Try restarting the application"
+      ]
+    },
+    {
+      "tag": "data_backup",
+      "patterns": [
+        "how to backup data", "backup files", "data recovery", "lost files",
+        "accidentally deleted files", "recover deleted data", "backup strategy"
+      ],
+      "responses": [
+        "Data Backup solutions:\n1. Windows built-in: Settings → Update & Security → Backup\n2. Use OneDrive/Google Drive for cloud backup\n3. External hard drive backup\n4. File History: Control Panel → File History → Turn on\n\nData Recovery for deleted files:\n1. Check Recycle Bin first\n2. Use Recuva (free tool) for recovery\n3. Check Previous Versions: right-click folder → Properties → Previous Versions\n4. Stop using drive immediately to prevent overwrite"
+      ]
+    },
+    {
+      "tag": "disk_space",
+      "patterns": [
+        "disk full", "storage full", "no space left", "hard drive full",
+        "disk space low", "c drive full", "how to free up space",
+        "storage management"
+      ],
+      "responses": [
+        "Free up disk space:\n1. Run Disk Cleanup: search 'Disk Cleanup' → select C drive\n2. Remove temporary files: Run → %temp% → delete all\n3. Uninstall unused programs\n4. Move files to external drive\n5. Use Storage Sense: Settings → System → Storage → Storage Sense\n6. Clear browser cache and downloads\n7. Remove old Windows Update files: Disk Cleanup → Clean up system files\n8. Check what's using space: WinDirStat tool"
+      ]
+    },
+    {
+      "tag": "network_security",
+      "patterns": [
+        "network security", "firewall settings", "port blocking", "firewall issue",
+        "how to secure network", "open firewall port", "network access denied"
+      ],
+      "responses": [
+        "Network Security tips:\n1. Always use WPA3/WPA2 encryption on WiFi\n2. Change default router password\n3. Enable firewall: Settings → Windows Security → Firewall\n4. To open specific port: Firewall → Advanced Settings → Inbound Rules → New Rule\n5. Disable WPS on router\n6. Regularly update router firmware\n7. Use guest network for visitors\n8. Enable MAC address filtering for extra security"
+      ]
+    },
+    {
+      "tag": "server_issue",
+      "patterns": [
+        "server down", "server not responding", "cannot access server",
+        "internal server error", "500 error", "503 error", "server timeout",
+        "web server issue", "database connection failed"
+      ],
+      "responses": [
+        "Server troubleshooting:\n1. Check if server is running: ping server-ip\n2. Check server logs for errors\n3. Verify services are running: services.msc\n4. Check firewall rules on server\n5. Verify database connection string\n6. Check disk space on server\n7. Monitor CPU/RAM usage\n8. Restart affected services\n9. Check event logs: Event Viewer → Windows Logs"
+      ]
+    },
+    {
+      "tag": "email_issue",
+      "patterns": [
+        "email not working", "cannot send email", "outlook issue", "gmail problem",
+        "email not receiving", "smtp error", "email configuration",
+        "outlook not opening", "mail sync issue"
+      ],
+      "responses": [
+        "Email troubleshooting:\n1. Check internet connection\n2. Verify email credentials are correct\n3. Check SMTP/IMAP settings:\n   Gmail: smtp.gmail.com (port 587)\n   Outlook: smtp.office365.com (port 587)\n4. Enable less secure apps or use App Password\n5. Clear Outlook cache: Run → %localappdata%\\Microsoft\\Outlook\n6. Recreate email profile in Outlook\n7. Check spam folder for missing emails"
+      ]
+    },
+    {
+      "tag": "hardware_diagnostic",
+      "patterns": [
+        "hardware check", "diagnose computer", "hardware test", "system diagnostic",
+        "check hardware health", "ram test", "hard drive health",
+        "cpu temperature", "hardware monitoring"
+      ],
+      "responses": [
+        "Hardware Diagnostic tools:\n\nRAM Test:\n• Windows Memory Diagnostic: search in start menu\n• MemTest86: free bootable tool\n\nHard Drive Health:\n• CrystalDiskInfo (free) — check S.M.A.R.T data\n• chkdsk /f /r in CMD\n\nCPU/GPU Temperature:\n• HWMonitor or CoreTemp\n• Normal CPU temp: below 80°C under load\n\nOverall Diagnostic:\n• Windows built-in: msinfo32 in Run\n• DirectX: dxdiag in Run"
       ]
     },
     {
       "tag": "unknown",
       "patterns": [
-        "asdf", "qwerty", "random text"
+        "asdf", "qwerty", "random text", "xyz", "aaa", "test123"
       ],
       "responses": [
-        "Sorry, I didn't understand that"
+        "I'm sorry, I didn't understand that. Could you please describe your IT issue more clearly?",
+        "I couldn't understand your query. Please tell me your specific IT problem and I'll help you fix it!",
+        "Could you rephrase that? I'm here to help with IT support issues like WiFi, laptop, software, or hardware problems."
       ]
-    },
-    {
-  "tag": "it_support",
-  "patterns": [
-    "my laptop is slow",
-    "wifi not working",
-    "blue screen error",
-    "system hang"
-  ],
-  "responses": [
-    "Try restarting your system or closing background apps.",
-    "Please check your internet connection."
-  ]
-}
+    }
   ]
 }
